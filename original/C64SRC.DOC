@@ -1,0 +1,187 @@
+                   =========================================
+                                    C64SRC
+                   =========================================
+
+                 ASSEMBLY SOURCES OF TWO COMMODORE 64 PROGRAMS
+
+                      Copyright (c) 1989-96 by B lint T¢th
+
+ ============================================================================
+
+  Contents
+  --------
+  1. Introduction
+  2. Legal Notice
+  3. How To Compile Bali's Sprite Designer 4.0
+  4. How To Compile Bali's Character Editor 2.0
+  5. Other Programs Available from the Same Author
+  6. Contacting the Author
+
+
+  1. Introduction
+  ---------------
+    This package contains the assembly source files of two Commodore 64
+    programs. They were transferred to PC system and converted to T64 tape file
+    format. You can use C64ASM, the Commodore 64 (6510) Assembler Package for
+    PC to compile the sources to executable C64 machine language programs.
+    A C64 emulator (or a real C64) is required to run the compiled programs.
+
+    The programs in this package are:
+      - C64SRC  .DOC    This documentation
+      - SPRD4ASM.T64    Assembly source of Bali's Sprite Designer 4.0
+      - CHRE2ASM.T64    Assembly source of Bali's Character Editor 2.0
+      - CHRE2BIN.PRG    Additional binary data for Bali's Character Editor 2.0
+      - CHARSETS.T64    Two character sets for Bali's Character Editor 2.0
+          - HUNGARIAN     - Hungarian characters
+          - GREEK/MATH    - Greek letters and mathemathical symbols
+
+    The source files are in original format, in order to demonstate how
+    you can make C64ASM compile source files that were written originally for
+    other compilers. You will need C64ASM v1.1 or later.
+    I describe shortly the steps you must do in order to compile the files
+    properly. See the documentation of C64ASM for further information on using
+    C64ASM and the other utilities in that package.
+
+    Of course, you may also use PROFI-ASS 64 on a C64 emulator or on a real C64
+    to compile the sources. In this case no modification is needed, but you
+    should load the sources from $2001 and not from $0801 in order to leave
+    enough space for the compiled code as well.
+
+    The compiled, executable version of these programs are also available
+    under the name C64PROGS. The C64ASM mentioned above is also available
+    as shareware. You can download them via World Wide Web at:
+      http://indigo2.vsz.bme.hu/bali/download.htm
+
+  2. Legal Notice
+  ---------------
+    This package is being distributed as FREEWARE. It means that you may use
+    the programs free of charge.
+
+    The program package, which MUST include all the above files may be freely
+    copied and distributed. These files may be re-archived to better suit a
+    given distribution system, but the distributed files may not be modified
+    in any other way. No distributor may charge more than $5 for the
+    distribution of this program. Uploading to BBSs or FTP sites or
+    distribution on CD-ROMs are accepted and encouraged.
+
+  3. How To Compile Bali's Sprite Designer 4.0
+  --------------------------------------------
+    The source of this program (SPRD4ASM.T64) contains two source files packed
+    in one single T64 file.
+    Carry out the following steps to compile the program:
+
+    - Convert the sources to plain ascii files:
+        BAS2TXT SPRD4ASM.T64 SPRITED4.ASM /LPS:
+        BAS2TXT SPRD4ASM.T64 SD4PART2.ASM /LPS: /E=2
+    - Edit SPRITED4.ASM:
+        - Delete the first two lines (they were required by PROFI-ASS 64 only):
+            SYS36864
+            .OPT OO
+        - Add the following line to the end of the file
+            .INCLUDE SD4PART2.ASM
+    - Edit SD4PART2.ASM:
+        - Delete the first two lines (they were required by PROFI-ASS 64 only):
+            SYS36864
+            .OPT OO
+    - Compile the source to T64 file (or to any other format):
+        C64ASM SPRITED4 /SLT /6
+    - Try out the compiled program (SPRITED4.T64):
+         - Start a C64 emulator
+         - Select SPRITED4.T64 in its file manager
+         - Load the program (type: LOAD)
+         - Start the program with the RUN command (a SYS command at the
+             beginning of the file starts the machine language code)
+    - You may delete the converted sources (SPRITED4.ASM and SD4PART2.ASM) and
+        the reportfile (SPRITED4.REP)
+
+  4. How To Compile Bali's Character Editor 2.0
+  ---------------------------------------------
+    The source of this program is in CHRE2ASM.T64.
+    Additional binary data required for compiling (the program's character set
+    and startup character set) can be found in CHRE2BIN.PRG. Two additional
+    character sets that can be loaded by the compiled program are in
+    CHARSETS.T64. The Hungarian character set is also put in the compiled
+    program at startup. The other set contains Greek letters and mathemathical
+    symbols.
+    Carry out the following steps to compile the program:
+
+    - Convert the source to plain ascii file:
+        BAS2TXT CHRE2ASM.T64 CHREDIT2.ASM /LPS:
+    - Edit CHREDIT2.ASM:
+        - Delete the first two lines (they were required by PROFI-ASS 64 only):
+            SYS36864
+            .OPT OO
+        - Add the following line to the end of the file
+            .INCBIN CHRE2BIN.PRG
+    - Compile the source to T64 file:
+        C64ASM CHREDIT2 /SLT /6
+    - Try out the compiled program (CHREDIT2.T64)
+    - You may delete the converted source (CHREDIT2.ASM) and the reportfile
+        (CHREDIT2.REP)
+
+  5. Other Programs Available from the Same Author
+  ------------------------------------------------
+    There are some other shareware and freeware programs available from
+    the same author:
+      - BALI'S CALC  - a Simple Scientific Calculator Program with
+                        ( ) x^y x! Pi Deg Rad Sin & Arcs, Ln Exp Mem
+                        Ran SCI BackSpace & more. DOS text mode,
+                        keyboard and/or mouse control (FREEWARE).
+      - FORMULA v2.0 - a Mathemathical Expression Evaluating Program
+                        with about 100 - 100 built-in contants and functions,
+                        and a constant and function editor, where you can
+                        define and save your own set. (FREEWARE)
+      - STEFI v1.0c  - a Graph Editor and Analyser Program
+                        where you can edit mathemathical graphs and analyse
+                        them in detail: matrices, components, Prufer code,
+                        minimal cost path and tree, excentricity, center,
+                        topologic order, strong components & more. (FREEWARE)
+      - C64ASM v1.1a - a Commodore 64 (6510) Assembler Package for PC
+                        C64ASM is an assembler for 6510 CPU, but runs on PC
+                        Supports local & global symbols, math.expressions,
+                        .IF, .GOTO, .INCLUDE, .INCBIN, detailed report & more.
+                        C64DISA is a disassembler with hexa/ascii dumps.
+                        BAS2TXT converts a tokenized CBM file to textfile.
+                        PRG, T64 and P00 file format support. (FREEWARE)
+      - C64PROGS     - Two Commodore 64 programs written in pure assembly.
+                         - Bali's Sprite Designer 4.0
+                         - Bali's Character Editor 2.0
+                        In T64 tape file format. A C64 emulator (or a real C64)
+                        is required. (FREEWARE)
+      - DOSINFO v1.3 - Information about dos, disks and more (FREEWARE)
+      - PRIMES       - List of prime numbers and prime factorization (FREEWARE)
+      - ASCII TEXTFILE MASTER  - A commandline-driven ascii textfile processor
+                        with margins, automatic page breaks, header & footer,
+                        justify, include files, symbolic defines, print merge
+                        and more. Manual only in Hungarian. (FREEWARE)
+
+    These programs are available on the World Wide Web at
+      http://members.chello.hu/toth.balint/software
+
+  4. Contacting the Author
+  ------------------------
+    I am always glad when receiving any feedbacks about my programs.
+    If you are satisfied :-), please let me know.
+    If you find it useless :-(, poor or disappointing, or just made a
+    much better one, please don't hesitate to write me that, too.
+    If you find any bugs :-(, please report them to me.
+    If you have any suggestions for further improvements, I will
+    appreciate them as well.
+    If you are interested in getting the source code of this or other
+    programs made by me, contact me for details.
+
+    Contact me at:
+
+            B lint T¢th
+
+    Mail:   Galopp u. 12. VIII. 22.
+            H-1046 Budapest
+            HUNGARY
+            Europe
+
+    Phone:  (+36)-1-2300551 (This is a Hungarian call (GMT+0100) )
+
+    E-mail: toth.balint@chello.hu
+
+    Don't forget to visit my personal home page at:
+      http://members.chello.hu/toth.balint/bali

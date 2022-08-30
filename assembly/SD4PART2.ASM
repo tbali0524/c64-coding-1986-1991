@@ -1,0 +1,181 @@
+SYS36864
+.OPT OO
+;
+; *******************************
+;   BALI'S SPRITE DESIGNER V4.0
+;  ASSEMBLY FORRASKOD  (2. RESZ)
+; *******************************
+;
+*=$1750
+;
+; SZERKESZTO KEPERNYO
+;
+.ASC "ì¿¿¿¿¿¿¿¿¿¿¿¿¿≤¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿"
+.ASC "BALI'S SPRITE›"
+.BYTE 13
+.ASC "DESIGNER V4.0›1"
+.BYTE 13
+.ASC "(C)1990. BALI›2"
+.BYTE 13
+.ASC " TOTH BALINT ›3"
+.BYTE 13
+.ASC "¿¿¿¿¿¿¿¿¿¿¿¿¿≥4"
+.BYTE 13
+.ASC "             ›5"
+.BYTE 13
+.ASC " SPRITE      ›6"
+.BYTE 13
+.ASC "             ›7"
+.BYTE 13
+.ASC "¿¿¿¿¿¿¿¿¿¿¿¿¿≥8"
+.BYTE 13
+.ASC " COLOUR MODE ›9"
+.BYTE 13
+.ASC "          ( )›0"
+.BYTE 13
+.ASC "¿¿¿¿¿¿¿¿¿¿¿¿¿≥1"
+.BYTE 13
+.ASC "   COLOURS   ›2"
+.BYTE 13
+.ASC "1:BACKGR:    í›3"
+.BYTE 13
+.ASC "2:MULTI1:    í›4"
+.BYTE 13
+.ASC "3:SPRITE:    í›5"
+.BYTE 13
+.ASC "4:MULTI2:    í›6"
+.BYTE 13
+.ASC "¿¿¿¿¿¿¿¿¿¿¿¿¿≥7"
+.BYTE 13
+.ASC "  OBJECT:    ›8"
+.BYTE 13
+.ASC " SPRITE   -  ›9"
+.BYTE 13
+.ASC "¿¿¿¿¿¿¿¿¿¿¿¿¿≥0"
+.BYTE 13
+.ASC "   PRESS H   ›1"
+.BYTE 13
+.ASC "   FOR HELP  ›"
+.BYTE 0
+;
+; SZOVEG KILEPESKOR
+;
+.ASC "ì	      BALI'S SPRITE DESIGNER V4.0"
+.BYTE 13
+.ASC "(C)COPYRIGHT: TOTH BALINT (BALI) ,1990. "
+.ASC "BUDAPEST,KABAR U.7.V.27. (TEL:1873-943) "
+.ASC "****************************************"
+.ASC "öPROGRAM      :$0801  # 2049"
+.BYTE 13
+.ASC " (RESTART:SYS2200)"
+.BYTE 13
+.ASC "OBJECT SPEED :$2E80  #11904"
+.BYTE 13
+.ASC "ANIM. SPEED  :$2E90  #11920"
+.BYTE 13
+.ASC "FIRST STEP   :$2EA0  #11936"
+.BYTE 13
+.ASC "LAST STEP    :$2EB0  #11952"
+.BYTE 13
+.ASC "COLOUR MODE  :$2EC0  #11968"
+.BYTE 13
+.ASC "BACKGROUND   :$2F00  #12032"
+.BYTE 13
+.ASC "MULTI-COL #1 :$2F40  #12096"
+.BYTE 13
+.ASC "SPRITE COLOUR:$2F80  #12160"
+.BYTE 13
+.ASC "MULTI-COL #2 :$2FC0  #12224"
+.BYTE 13
+.ASC "SPRITE PIXELS:$3000  #12288"
+.BYTE 13
+.ASC " (POINTER 192-255)"
+.BYTE 13
+.ASC "BASIC RAM    :$4001  #16385"
+.BYTE 13
+.ASC " 24575 BASIC BYTES FREE"
+.BYTE 13,0
+;
+; HELP KEPERNYO 2
+;
+.ASC "ì             HELP SCREEN 2"
+.BYTE 13
+.ASC "****************************************"
+.ASC " SHIFT + -  SELECT OBJECT"
+.BYTE 13
+.ASC "        F - FIRST STEP = ACTUAL SPRITE"
+.BYTE 13
+.ASC "        E - LAST STEP  = ACTUAL SPRITE"
+.BYTE 13
+.ASC "        A - ANIMATE ACTUAL OBJECT"
+.BYTE 13
+.ASC " (     + -  CHANGE ANIMATION SPEED"
+.BYTE 13
+.ASC " SHIFT + -  CHANGE OBJECT SPEED"
+.BYTE 13
+.ASC "     CRSR - MOVE OBJECT"
+.BYTE 13
+.ASC "     STOP - BACK TO THE EDITOR )"
+.BYTE 13
+.ASC "  SHIFT L - LOAD"
+.BYTE 13
+.ASC "  SHIFT S - SAVE"
+.BYTE 13
+.ASC "  SHIFT V - VERIFY"
+.BYTE 13
+.ASC "  SHIFT M - LOAD WITH MERGE"
+.BYTE 13
+.ASC "       F7 - PREVIOUS FILENAME (ENTERING)"
+.ASC "     STOP - ABORT I/O OPERATION"
+.BYTE 13
+.ASC "  SHIFT U - UNDO ( ERASE,COPY & MERGE ) "
+.ASC "  SHIFT I - INITIALIZE"
+.BYTE 13
+.ASC "        H - HELP"
+.BYTE 13
+.ASC "  SHIFT Q - QUIT FROM SPRITE DESIGNER"
+.BYTE 0
+;
+; HELP KEPERNYO 1
+;
+.ASC "ì             HELP SCREEN 1"
+.BYTE 13
+.ASC "****************************************"
+.ASC "       + -  SELECT SPRITE"
+.BYTE 13
+.ASC "  1 2 3 4 - SET DOT/SELECT CURRENT COL"
+.BYTE 13
+.ASC "    SPACE - SET DOT TO CURRENT COLOUR"
+.BYTE 13
+.ASC "     CRSR - MOVE CURSOR"
+.BYTE 13
+.ASC "     HOME - HOME CURSOR"
+.BYTE 13
+.ASC "SHIFT 1234- SET COLOUR ( +- TO SELECT ) "
+.ASC "        C - CHANGE COLOUR MODE"
+.BYTE 13
+.ASC "        G - TURN GRID ON/OFF"
+.BYTE 13
+.ASC "        U - SLIDE UP"
+.BYTE 13
+.ASC "        D - SLIDE DOWN"
+.BYTE 13
+.ASC "        L - SLIDE LEFT"
+.BYTE 13
+.ASC "        R - SLIDE RIGHT"
+.BYTE 13
+.ASC "        X - MIRROR HORIZONTALLY"
+.BYTE 13
+.ASC "        Y - MIRROR VERTICALLY"
+.BYTE 13
+.ASC "        O - ROTATE BY 180"
+.BYTE 13
+.ASC "        I - INVERT"
+.BYTE 13
+.ASC "      CLR - ERASE"
+.BYTE 13
+.ASC "  SHIFT C - COPY  ( +- TO SELECT,"
+.BYTE 13
+.ASC "        M - MERGE   RETURN WHEN READY ) "
+.ASC "            PRESS H FOR MORE"
+.BYTE 0
